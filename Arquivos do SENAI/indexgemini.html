@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Única com Bootstrap</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f8f9fa; /* Light gray background */
+        }
+
+        .navbar {
+            border-radius: 0 0 15px 15px; /* Rounded bottom corners for navbar */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .navbar-brand {
+            font-weight: 700; /* Bolder brand name */
+        }
+
+        .jumbotron {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); /* Gradient background */
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 15px; /* Rounded corners */
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .jumbotron h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .jumbotron p {
+            font-size: 1.25rem;
+        }
+
+        .card {
+            border: none; /* Remove default card border */
+            border-radius: 15px; /* Rounded corners for cards */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* Slight lift on hover */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-title {
+            color: #007bff; /* Primary color for card titles */
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 50px; /* Pill-shaped buttons */
+            padding: 0.5rem 1.5rem;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .btn-secondary {
+            border-radius: 50px; /* Pill-shaped buttons */
+            padding: 0.5rem 1.5rem;
+        }
+
+        .content-section {
+            padding: 40px 0;
+        }
+
+        .footer {
+            background-color: #343a40; /* Dark background for footer */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 15px 15px 0 0; /* Rounded top corners for footer */
+            margin-top: auto; /* Pushes footer to the bottom */
+        }
+
+        .footer p {
+            margin-bottom: 0;
+        }
+
+        /* Message box for JS interaction */
+        #messageBox {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #28a745; /* Success green */
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1050; /* Ensure it's above other content */
+        }
+         /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .jumbotron h1 {
+                font-size: 2.5rem;
+            }
+            .jumbotron p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Meu Site</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Início <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicos">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="jumbotron">
+        <div class="container">
+            <h1 class="display-4">Bem-vindo ao Meu Site!</h1>
+            <p class="lead">Este é um exemplo de página única criada com HTML, CSS, JavaScript e Bootstrap.</p>
+            <hr class="my-4">
+            <p>Clique no botão abaixo para uma demonstração de JavaScript.</p>
+            <button class="btn btn-light btn-lg" id="jsButton">Clique Aqui!</button>
+        </div>
+    </header>
+
+    <div id="messageBox">
+        Olá! O JavaScript está funcionando!
+    </div>
+
+    <main class="container content-section">
+        <section id="sobre" class="my-5">
+            <h2 class="text-center mb-4">Sobre Nós</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://placehold.co/600x400/007bff/white?text=Imagem+Sobre+Nós" class="img-fluid rounded mb-3" alt="Imagem Sobre Nós">
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="my-5">
+            <h2 class="text-center mb-4">Nossos Serviços</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://placehold.co/300x200/28a745/white?text=Serviço+1" class="card-img-top" alt="Serviço 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Serviço 1</h5>
+                            <p class="card-text">Descrição breve do serviço 1. Foco nos benefícios e soluções que ele oferece.</p>
+                            <a href="#" class="btn btn-primary">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://placehold.co/300x200/ffc107/black?text=Serviço+2" class="card-img-top" alt="Serviço 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Serviço 2</h5>
+                            <p class="card-text">Descrição breve do serviço 2. Destaque para os diferenciais e vantagens.</p>
+                            <a href="#" class="btn btn-primary">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://placehold.co/300x200/dc3545/white?text=Serviço+3" class="card-img-top" alt="Serviço 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Serviço 3</h5>
+                            <p class="card-text">Descrição breve do serviço 3. Apresente como ele pode ajudar o cliente.</p>
+                            <a href="#" class="btn btn-primary">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="my-5">
+            <h2 class="text-center mb-4">Entre em Contato</h2>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <form>
+                        <div class="form-group">
+                            <label for="contactName">Nome</label>
+                            <input type="text" class="form-control" id="contactName" placeholder="Seu Nome" style="border-radius: 8px;">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" class="form-control" id="contactEmail" placeholder="seu.email@exemplo.com" style="border-radius: 8px;">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Mensagem</label>
+                            <textarea class="form-control" id="contactMessage" rows="4" placeholder="Sua Mensagem" style="border-radius: 8px;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Meu Site. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Script para definir o ano atual no rodapé
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Script para o botão de demonstração do Jumbotron
+        const jsButton = document.getElementById('jsButton');
+        const messageBox = document.getElementById('messageBox');
+
+        jsButton.addEventListener('click', function() {
+            // Mostra a caixa de mensagem
+            messageBox.style.display = 'block';
+            
+            // Esconde a caixa de mensagem após 3 segundos
+            setTimeout(function() {
+                messageBox.style.display = 'none';
+            }, 3000); // 3000 milissegundos = 3 segundos
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Adjust scroll position to account for sticky navbar height
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+                
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

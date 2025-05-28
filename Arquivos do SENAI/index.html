@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meu Site Simples</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding-top: 56px;
+    }
+    header {
+      background: url('https://via.placeholder.com/1600x400') center center no-repeat;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      padding: 100px 0;
+    }
+    header h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    section {
+      padding: 60px 0;
+    }
+    footer {
+      background-color: #f8f9fa;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Meu Site</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Header -->
+<header>
+  <div class="container">
+    <h1>Bem-vindo ao Meu Site</h1>
+    <p class="lead">Este é um exemplo de site em uma única página</p>
+  </div>
+</header>
+
+<!-- Seção Sobre -->
+<section id="sobre">
+  <div class="container">
+    <h2 class="text-center mb-4">Sobre</h2>
+    <p class="text-center">Este site foi criado como um exemplo simples de estrutura usando HTML, CSS, JavaScript e Bootstrap em um único arquivo.</p>
+  </div>
+</section>
+
+<!-- Seção Contato -->
+<section id="contato" class="bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Contato</h2>
+    <form onsubmit="enviarFormulario(event)">
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="mensagem" class="form-label">Mensagem</label>
+        <textarea class="form-control" id="mensagem" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </div>
+</section>
+
+<!-- Rodapé -->
+<footer>
+  <p>&copy; 2025 Meu Site. Todos os direitos reservados.</p>
+</footer>
+
+<!-- Bootstrap JS e dependências -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JavaScript personalizado -->
+<script>
+  function enviarFormulario(event) {
+    event.preventDefault();
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const mensagem = document.getElementById('mensagem').value;
+
+    if (nome && email && mensagem) {
+      alert(`Obrigado, ${nome}! Sua mensagem foi enviada.`);
+      document.querySelector('form').reset();
+    } else {
+      alert('Por favor, preencha todos os campos.');
+    }
+  }
+</script>
+
+</body>
+</html>
